@@ -7,6 +7,14 @@ name = "pypi"
 mistralai = "*"
 matplotlib = "*"
 seaborn = "*"
+streamlit = "*"
+scikit-learn = "*"
+groq = "*"
+python-dotenv = "*"
+tqdm = "*"
+psycopg2-binary = "*"
+gunicorn = "*"
+
 
 [dev-packages]
 
