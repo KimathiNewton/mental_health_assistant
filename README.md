@@ -28,7 +28,7 @@ This project aims to address these challenges by developing an intelligent menta
 - **Jupyter Notebook**: Utilized for exploratory data analysis, prototyping, and preprocessing, offering an interactive platform for data exploration.
 
 ### **🧬 Dataset**
-The dataset in this project contains information related to **mental health queries**, structured for use in the knowledge base of the Retrieval-Augmented Generation (RAG) system. The data is stored in the `[dataset](dataset/data.csv)` directory and serves as the foundation for generating mental health-related responses in areas such as depression, trauma, stress, and relationship issues.
+The dataset in this project contains information related to **mental health queries**, structured for use in the knowledge base of the Retrieval-Augmented Generation (RAG) system. The data is stored in the [dataset](dataset/data.csv) directory and serves as the foundation for generating mental health-related responses in areas such as depression, trauma, stress, and relationship issues.
 
 ---
 
@@ -36,44 +36,49 @@ The dataset in this project contains information related to **mental health quer
 
 The backend of the **Mental Health Assistant** application handles various components of the RAG system, including data ingestion, retrieval, and interaction with the Large Language Models (LLMs). Below is an overview of the key backend files:
 
-#### **1. app.py**
-- **Main entry point of the FastAPI application**: Defines API endpoints for user interaction with the system.
-- **API Endpoints**:
-  - **/question**: Processes user queries by retrieving relevant data from the knowledge base and generating a response using the LLM.
-  - **/feedback**: Stores user feedback on the responses provided by the assistant to continuously improve the system.
+#### **1. [app.py](src/app.py)**
+- Streamlit app that Processes the user queries by retrieving relevant data from the knowledge base and generating a response using the LLM and gets the user feedback on the responses provided by the assistant to continuously improve the system.
 
-- **CORS Middleware Configuration**: Configures CORS to allow cross-origin requests from the frontend (e.g., a Streamlit app) to the backend API.
 
-#### **2. rag.py**
+#### **2. [rag.py](src/rag.py)**
 - **Core RAG Logic**: Implements the primary logic for the Retrieval-Augmented Generation process.
 - **Key Functions**:
-  - **Query Elasticsearch**: Searches for relevant mental health-related documents in the Elasticsearch knowledge base.
+  - **Query Minsearch**: Searches for relevant mental health-related documents in the Minsearch knowledge base.
   - **Build Prompts**: Constructs the input prompt for the LLM based on the retrieved documents.
   - **Evaluate Answers**: Assesses the relevance of the AI-generated answers to ensure they are contextually accurate and meaningful.
 
-#### **3. db.py**
+#### **3. [db.py](src/db.py)**
 - **Database Management**: Manages interaction with the **PostgreSQL** database.
 - **Key Features**:
   - **Initialize Database Schema**: Creates the necessary database tables to store conversations and user feedback.
   - **Save Conversations**: Stores question-answer pairs and feedback to analyze user interactions over time.
 
-#### **4. prep.py**
-- **Elasticsearch and Database Initialization**: Prepares the environment by indexing mental health documents and setting up the database.
-- **Key Functions**:
-  - **Elasticsearch Indexing**: Configures index mappings and ingests pre-processed mental health-related documents for efficient search and retrieval.
-  - **Database Setup**: Initializes the database with the correct schema and relations.
 
-#### **5. ingest.py**
-- **Document Ingestion**: Handles the processing and ingestion of the dataset into Elasticsearch.
+#### **5. [ingest.py](src/ingest.py)**
+- **Document Ingestion**: Handles theingestion of the dataset into Minsearch.
 - **Key Features**:
   - **Text Cleaning**: Pre-processes and cleans mental health-related documents before indexing.
   - **Document Indexing**: Pushes the cleaned documents into Elasticsearch for later retrieval during RAG queries.
+
 
 #### **6. init.py**
 - **Grafana Setup**: Configures **Grafana** for monitoring the system's performance.
 - **Key Features**:
   - **Data Source Configuration**: Sets up PostgreSQL as a data source for tracking system metrics such as query response times, user activity, and feedback analysis.
   - **Dashboard Initialization**: Initializes Grafana dashboards for visualizing key metrics like query efficiency, response accuracy, and feedback trends.
+
+### **6. [Dockerfile](Dockerfile)**
+- **Base Image** : Uses python:3.12-slim as the base image for a lightweight container.
+- **Working Directory** : Sets the working directory to /app.
+- **Pipenv Installation** : Installs pipenv to manage dependencies.
+- **Data and Dependency Copying** : Copies the dataset and dependency files into the container.
+- **Streamlit Launch**: Specifies the command to run the Streamlit app on port 8501.
+
+### **7. [docker-Compose.yaml](docker-compose.yaml)
+- **Service Definitions**: Sets up three services: PostgreSQL, Streamlit, and Grafana.
+- **PostgreSQL Configuration**: Defines environment variables for the database setup.
+- **Streamlit Configuration**: Builds the Streamlit service using the Dockerfile, specifying dependencies and environment variables.
+- **Grafana Configuration**: Sets up Grafana with the necessary environment variables and dependencies.
 
 ---
 
