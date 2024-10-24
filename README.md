@@ -28,7 +28,7 @@ This project aims to address these challenges by developing an intelligent menta
 - **Jupyter Notebook**: Utilized for exploratory data analysis, prototyping, and preprocessing, offering an interactive platform for data exploration.
 
 ### **🧬 Dataset**
-The dataset in this project contains information related to **mental health queries**, structured for use in the knowledge base of the Retrieval-Augmented Generation (RAG) system. The data is stored in the `dataset/` directory and serves as the foundation for generating mental health-related responses in areas such as depression, trauma, stress, and relationship issues.
+The dataset in this project contains information related to **mental health queries**, structured for use in the knowledge base of the Retrieval-Augmented Generation (RAG) system. The data is stored in the `[dataset](dataset/data.csv)` directory and serves as the foundation for generating mental health-related responses in areas such as depression, trauma, stress, and relationship issues.
 
 ---
 
