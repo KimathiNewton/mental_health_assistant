@@ -69,12 +69,12 @@ The backend of the **Mental Health Assistant** application handles various compo
 
 ### **6. [Dockerfile](Dockerfile)**
 - **Base Image** : Uses python:3.12-slim as the base image for a lightweight container.
-- **Working Directory** : Sets the working directory to /app.
+- **Working Directory** : Sets the working directory to /app.**
 - **Pipenv Installation** : Installs pipenv to manage dependencies.
 - **Data and Dependency Copying** : Copies the dataset and dependency files into the container.
 - **Streamlit Launch**: Specifies the command to run the Streamlit app on port 8501.
 
-### **7. [docker-Compose.yaml](docker-compose.yaml)
+### **7. [docker-Compose.yaml](docker-compose.yaml)**
 - **Service Definitions**: Sets up three services: PostgreSQL, Streamlit, and Grafana.
 - **PostgreSQL Configuration**: Defines environment variables for the database setup.
 - **Streamlit Configuration**: Builds the Streamlit service using the Dockerfile, specifying dependencies and environment variables.
@@ -83,3 +83,127 @@ The backend of the **Mental Health Assistant** application handles various compo
 ---
 
 This backend architecture supports the Mental Health Assistant application by efficiently processing user queries, generating contextually relevant mental health responses, and providing insightful metrics for system performance monitoring.
+
+### **Running the Mental Health Assistant Application**
+
+This guide outlines how to run the **Mental Health Assistant** application, configure the database, and interact with the system using Docker, Docker Compose, and local environments.
+
+---
+
+### **Database Configuration**
+
+Before starting the application for the first time, the PostgreSQL database needs to be initialized.
+
+#### **Step 1: Start PostgreSQL**
+
+To run PostgreSQL using Docker Compose, execute the following command:
+
+```bash
+docker-compose up postgres
+```
+
+#### **Step 2: Initialize the Database**
+
+After PostgreSQL is running, initialize the database schema by running the `db_prep.py` script:
+
+```bash
+pipenv shell
+
+cd mental_health_assistant
+
+export POSTGRES_HOST=localhost
+python run app.py
+```
+
+#### **Step 3: Verify Database Content**
+
+To inspect the contents of the database, you can use `pgcli`, which is installed through `pipenv`. Access the PostgreSQL instance with the following command:
+
+```bash
+pipenv run pgcli -h localhost -U your_username -d mental_health_assistant -W
+```
+
+Once inside `pgcli`, you can view the schema with the `\d` command:
+
+```sql
+\d conversations;
+```
+
+To select and display data from the `conversations` table:
+
+```sql
+SELECT * FROM conversations;
+```
+
+---
+
+### **Running the Application with Docker Compose**
+
+The easiest way to run the application is by using Docker Compose. This command will bring up the services defined in the `docker-compose.yaml` file, including PostgreSQL, Grafana, and the Streamlit application:
+
+```bash
+docker-compose up
+```
+
+---
+
+### **Running the Application Locally**
+
+If you want to run the application locally without Dockerizing the entire environment, you can start only the PostgreSQL and Grafana services using Docker Compose:
+
+```bash
+docker-compose up postgres grafana
+```
+
+If you previously started all services using `docker-compose up`, stop the Streamlit application before proceeding:
+
+```bash
+docker-compose stop streamlit
+```
+
+Now, you can run the application on your host machine:
+
+```bash
+pipenv shell
+
+cd mental_health_assistant
+
+export POSTGRES_HOST=localhost
+python app.py
+```
+
+---
+
+### **Running the Application with Docker (without Docker Compose)**
+
+You may want to run the application in Docker without Docker Compose, especially for debugging or development purposes.
+
+#### **Step 1: Prepare the Environment**
+
+Before running the application standalone in Docker, ensure the environment is properly set up by running Docker Compose as explained above.
+
+#### **Step 2: Build the Docker Image**
+
+To build the Docker image manually, run the following command:
+
+```bash
+docker build -t mental-health-assistant .
+```
+
+#### **Step 3: Run the Docker Container**
+
+To run the application in a Docker container without using Docker Compose, use this command:
+
+```bash
+docker run -it --rm \
+    --network="mental_health_assistant_default" \
+    --env-file=".env" \
+    -e GROQ_API_KEY=${GROQ_API_KEY} \
+    -e DATA_PATH="dataset/data.csv" \
+    -p 8501:8501 \
+    mental-health-assistant
+```
+
+This will run the container, exposing the Streamlit application on port `8501`.
+
+---
