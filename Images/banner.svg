@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="80" fill="url(#circleGradient)" opacity="0.5">
+    <animate attributeName="r" values="80;90;80" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1100" cy="300" r="60" fill="url(#circleGradient)" opacity="0.3">
+    <animate attributeName="r" values="60;70;60" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Connected Nodes Visualization -->
+  <g transform="translate(200, 200)" filter="url(#glow)">
+    <!-- Brain network visualization -->
+    <circle cx="0" cy="0" r="8" fill="#60A5FA"/>
+    <circle cx="40" cy="-30" r="8" fill="#60A5FA"/>
+    <circle cx="80" cy="0" r="8" fill="#60A5FA"/>
+    <circle cx="40" cy="30" r="8" fill="#60A5FA"/>
+    <circle cx="120" cy="-30" r="8" fill="#60A5FA"/>
+    <circle cx="160" cy="0" r="8" fill="#60A5FA"/>
+    <circle cx="120" cy="30" r="8" fill="#60A5FA"/>
+    
+    <!-- Connecting lines -->
+    <line x1="0" y1="0" x2="40" y2="-30" stroke="#60A5FA" stroke-width="2"/>
+    <line x1="40" y1="-30" x2="80" y2="0" stroke="#60A5FA" stroke-width="2"/>
+    <line x1="80" y1="0" x2="40" y2="30" stroke="#60A5FA" stroke-width="2"/>
+    <line x1="40" y1="30" x2="0" y2="0" stroke="#60A5FA" stroke-width="2"/>
+    <line x1="80" y1="0" x2="120" y2="-30" stroke="#60A5FA" stroke-width="2"/>
+    <line x1="120" y1="-30" x2="160" y2="0" stroke="#60A5FA" stroke-width="2"/>
+    <line x1="160" y1="0" x2="120" y2="30" stroke="#60A5FA" stroke-width="2"/>
+    <line x1="120" y1="30" x2="80" y2="0" stroke="#60A5FA" stroke-width="2"/>
+    
+    <!-- Pulse animations -->
+    <circle cx="80" cy="0" r="12" fill="none" stroke="#60A5FA" stroke-width="2">
+      <animate attributeName="r" values="12;24;12" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Heart Rate Line -->
+  <path d="M600 200 
+           L650 200 L670 150 L690 250 L710 200 L760 200" 
+        stroke="#F472B6" 
+        stroke-width="3"
+        fill="none"
+        filter="url(#glow)">
+    <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Text Elements -->
+  <g transform="translate(600, 150)" text-anchor="middle">
+    <text x="0" y="0" 
+          font-family="Arial, sans-serif" 
+          font-size="48" 
+          fill="#ffffff" 
+          font-weight="bold"
+          filter="url(#glow)">
+      Mental Health Assistant
+    </text>
+    
+    <text x="0" y="40" 
+          font-family="Arial, sans-serif" 
+          font-size="24" 
+          fill="#BEE3F8"
+          filter="url(#glow)">
+      AI-Powered Support • Empathy • Understanding
+    </text>
+  </g>
+
+  <!-- Floating Emoji-style Icons -->
+  <g transform="translate(900, 200)">
+    <g transform="translate(0, 0)" filter="url(#glow)">
+      <circle cx="0" cy="0" r="20" fill="#F472B6"/>
+      <path d="M-8 0 L0 8 L8 0" stroke="#ffffff" stroke-width="3" fill="none"/>
+      <circle cx="-6" cy="-6" r="2" fill="#ffffff"/>
+      <circle cx="6" cy="-6" r="2" fill="#ffffff"/>
+    </g>
+    <g transform="translate(50, -30)" filter="url(#glow)">
+      <circle cx="0" cy="0" r="20" fill="#60A5FA"/>
+      <path d="M-6 -6 L6 -6" stroke="#ffffff" stroke-width="3"/>
+      <path d="M-8 4 C-8 8, 8 8, 8 4" stroke="#ffffff" stroke-width="3" fill="none"/>
+    </g>
+    <g transform="translate(100, 0)" filter="url(#glow)">
+      <circle cx="0" cy="0" r="20" fill="#34D399"/>
+      <circle cx="-6" cy="-6" r="2" fill="#ffffff"/>
+      <circle cx="6" cy="-6" r="2" fill="#ffffff"/>
+      <path d="M-8 4 C-8 12, 8 12, 8 4" stroke="#ffffff" stroke-width="3" fill="none"/>
+    </g>
+  </g>
+
+  <!-- Animated Particles -->
+  <g>
+    <circle cx="200" cy="350" r="2" fill="#ffffff" opacity="0.6">
+      <animate attributeName="cy" values="350;50;350" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1000" cy="50" r="2" fill="#ffffff" opacity="0.6">
+      <animate attributeName="cy" values="50;350;50" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
