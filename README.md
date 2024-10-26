@@ -1,4 +1,5 @@
-## Project Overview: Mental Health Assistant RAG
+## Mental Health Assistant RAG
+![visual](Images/banner.svg)
 This project, Mental Health Assistant RAG, was developed to support individuals with mental health concerns by implementing a Retrieval-Augmented Generation (RAG) system. The assistant intelligently answers mental health-related queries by integrating a knowledge base and large language models (LLMs). The system is designed to assist with questions about issues such as depression, trauma, stress, grief, and relationships. By leveraging retrieval and generation capabilities, this project offers users accurate, supportive, and personalized responses, making it a valuable tool for mental health guidance and education.
 
 ## 🧠 Problem Description
@@ -61,7 +62,7 @@ The backend of the **Mental Health Assistant** application handles various compo
   - **Document Indexing**: Pushes the cleaned documents into Elasticsearch for later retrieval during RAG queries.
 
 
-#### **6. init.py**
+#### **6. [init.py](grafana/init.py)**
 - **Grafana Setup**: Configures **Grafana** for monitoring the system's performance.
 - **Key Features**:
   - **Data Source Configuration**: Sets up PostgreSQL as a data source for tracking system metrics such as query response times, user activity, and feedback analysis.
@@ -220,6 +221,7 @@ pipenv run jupyter notebook
 We have the following notebooks:
 
 **[data-generation.ipynb](notebooks/data_generation.ipynb)**: Generating the ground truth dataset for retrieval evaluation.
+
 **[rag-test.ipynb](notebooks/rag_evaluation.ipynb)**: The RAG flow and evaluating the system.
 
 ### **Retrieval Evaluation**
@@ -340,4 +342,6 @@ The monitoring dashboard contains several panels:
 ### 📬 Contact
 For questions, suggestions, or collaboration opportunities:
 
-[LinkedIn](https://www.linkedin.com/in/kimathinewton)       [Email](newtonkimathi20@gmail.com)
+* [LinkedIn](https://www.linkedin.com/in/kimathinewton)
+
+* [Email](newtonkimathi20@gmail.com)
