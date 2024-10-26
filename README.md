@@ -327,3 +327,17 @@ The monitoring dashboard contains several panels:
 4. Model Used (Bar Chart): A bar chart displaying the count of conversations based on the different models used. This panel provides insights into which AI models are most frequently used.
 5. Response Time (Time Series): A time series chart showing the response time of conversations over time. This panel is useful for identifying performance issues and ensuring the system's responsiveness.
 ![dashboard](Images/dashboard.jpg)
+
+
+### 🙌 Contributing
+1. Fork the repository
+2. Create your feature branch (git checkout -b feature/AmazingFeature)
+3. Commit your changes (git commit -m 'Add some AmazingFeature')
+4. Push to the branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
+6. Issue Tracker: Use GitHub Issues for bug reports and feature requests.
+
+### 📬 Contact
+For questions, suggestions, or collaboration opportunities:
+
+[LinkedIn](https://www.linkedin.com/in/kimathinewton)       [Email](newtonkimathi20@gmail.com)
