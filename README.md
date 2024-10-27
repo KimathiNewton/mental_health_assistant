@@ -7,6 +7,9 @@ Mental health is a crucial aspect of well-being, affecting millions of people wo
 
 This project aims to address these challenges by developing an intelligent mental health assistant that can handle complex queries and provide contextually relevant and accurate answers. By leveraging RAG techniques, the system combines the reasoning power of LLMs with the precision of curated mental health knowledge, ensuring that users receive personalized support and guidance based on expert sources. This assistant makes mental health resources more accessible and helps reduce the stigma associated with seeking help, offering a bridge between individuals and the mental health care they need.
 
+![Streamlit UI](Images/Streamlit.jpg)
+
+
 ### **🧬 Technologies and Tools Used**
 
 #### ⚗️ Key Technologies
@@ -19,14 +22,16 @@ This project aims to address these challenges by developing an intelligent menta
 - **gemma2-9b-it**: Used to reformulate user questions, optimizing them for better clarity and understanding by the assistant.
 - **llama3-70b-8192**: Powers the retrieval-augmented generation process by handling complex mental health queries and delivering accurate, contextually relevant responses.
 - **mixtral-8x7b-32768**: Contributes to processing large volumes of text, refining responses for depth and relevance.
-- **Groq**: Integrated into the system to enhance vector processing efficiency during the search and retrieval phase, improving response time.
-- **MinSearch**: Provides fast, scalable retrieval of information by managing vector indexing and semantic search, enabling more precise query-to-answer matching.
 
 #### ⚗️ Other Tools Used for Development
 - **Pytest**: Used for unit and integration testing to ensure the reliability and robustness of the code.
 - **Git**: Version control system for tracking project changes, enabling collaboration, and maintaining code integrity.
 - **Visual Studio Code**: IDE used for coding, debugging, and managing the development workflow.
 - **Jupyter Notebook**: Utilized for exploratory data analysis, prototyping, and preprocessing, offering an interactive platform for data exploration.
+- **MinSearch**: Provides fast, scalable retrieval of information by managing vector indexing and semantic search, enabling more precise query-to-answer matching.
+- **Groq**: Integrated into the system to enhance vector processing efficiency during the search and retrieval phase, improving response time.
+
+
 
 ### **🧬 Dataset**
 The dataset in this project contains information related to **mental health queries**, structured for use in the knowledge base of the Retrieval-Augmented Generation (RAG) system. The data is stored in the [dataset](dataset/data.csv) directory and serves as the foundation for generating mental health-related responses in areas such as depression, trauma, stress, and relationship issues.
