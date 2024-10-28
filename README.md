@@ -350,9 +350,8 @@ For questions, suggestions, or collaboration opportunities:
 * [LinkedIn](https://www.linkedin.com/in/kimathinewton)
 
 * [Email](newtonkimathi20@gmail.com)
-## Article
-Here is the [Article Link](https://medium.com/@NewtonKimathi/covid-sentiment-analysis-4323c1dae633)
 
+## Article
 Check out my latest articles here:
 
 <a target="_blank" href="https://github-readme-medium-recent-article.vercel.app/medium/@@NewtonKimathi/0"><img src="https://github-readme-medium-recent-article.vercel.app/medium/@@NewtonKimathi/0" alt="Recent Article 0"> 
